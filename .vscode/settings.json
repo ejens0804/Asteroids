@@ -1,0 +1,17 @@
+{
+    "cmake.generator": "MinGW Makefiles",
+    "cmake.configureSettings": {
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/mingw32-make.exe"
+    },
+    "terminal.integrated.profiles.windows": {
+        "MSYS2 MinGW64": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": ["--login", "-i"],
+            "env": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1"
+            }
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "MSYS2 MinGW64"
+}
