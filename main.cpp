@@ -9,7 +9,7 @@
 #include "Asteroid.h"
 
 // command to run in terminal to run program:
-// cd /c/dev/cplusplus/Asteroids/build && ./test.exe
+// cd build && ./test.exe
 
 int main()
 {

@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Entity.h"
+#include <SFML/Graphics.hpp>
 
 class Asteroid : public Entity
 {

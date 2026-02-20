@@ -6,10 +6,8 @@
 #include "Globals.h"
 
 
-class Player : public Entity
-{
-public:
-    Player() 
+
+    Player::Player() 
         : Entity(sf::Vector2f(500, 500), 0), array(sf::LinesStrip, 5), shootTimer()
     {
         array[0].position = sf::Vector2f(20, 0);
@@ -24,7 +22,7 @@ public:
         }
     }
 
-    void update(float deltaTime) override
+    void Player::update(float deltaTime) 
     {
         shootTimer -= deltaTime;
 
@@ -70,13 +68,8 @@ public:
         }
     }
 
-    void render(sf::RenderWindow &window) override
+    void Player::render(sf::RenderWindow &window) 
     {
         // sf::Transform transform; // LINE OF CODE THAT MAY NEED TO BE DELETED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         window.draw(array, sf::Transform().translate(position).rotate(angle));
     } // & means a reference to the item that it is typed next to
-
-private:
-    sf::VertexArray array;
-    float shootTimer;
-};
