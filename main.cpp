@@ -13,7 +13,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1200, 900), "Asteroids Game",
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Asteroids Game",
                             sf::Style::Close | sf::Style::Titlebar);
     sf::Clock clock;
 
