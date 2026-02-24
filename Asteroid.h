@@ -1,6 +1,13 @@
 #pragma once
+
 #include "Entity.h"
-#include <SFML/Graphics.hpp>
+#include "Global.h"
+
+constexpr float ASTEROID_W = 90.0f;
+constexpr float ASTEROID_H = 80.0f;
+constexpr float ASTEROID_SPIN = 25.0f;
+constexpr float ASTEROID_SPEED = 80.0f; // Default: 80.0f
+constexpr float ASTEROID_SPAWN_TIME = 3.0f;
 
 class Asteroid : public Entity
 {

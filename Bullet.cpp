@@ -1,5 +1,5 @@
 #include "Bullet.h"
-#include "Globals.h"
+#include "Global.h"
 #include "Constants.h"
 #include <algorithm>
 

@@ -3,7 +3,7 @@
 #include "Constants.h"
 #include <cmath>
 #include "Bullet.h"
-#include "Globals.h"
+#include "Global.h"
 
 
 
@@ -30,11 +30,21 @@
         {
             angle -= TURN_SPEED * deltaTime;
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            angle -= TURN_SPEED * deltaTime;
+        }
+
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
             angle += TURN_SPEED * deltaTime;
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            angle += TURN_SPEED * deltaTime;
+        }
+
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         {
@@ -48,6 +58,19 @@
             position.y = std::min(std::max(position.y, PLAYER_H / 2.0f),
                                   SCREEN_HEIGHT - PLAYER_H / 2.0f);
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            float radians = angle * (PI / 180.0f);
+
+            position.x += cos(radians) * PLAYER_SPEED * deltaTime;
+            position.y += sin(radians) * PLAYER_SPEED * deltaTime;
+
+            position.x = std::min(std::max(position.x, PLAYER_W / 2.0f),
+                                  SCREEN_WIDTH - PLAYER_W / 2.0f);
+            position.y = std::min(std::max(position.y, PLAYER_H / 2.0f),
+                                  SCREEN_HEIGHT - PLAYER_H / 2.0f);
+        }
+
 
         // TURN THIS SECTION OFF LATER TO MIMIC THE ORIGINAL ASTEROIDS
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -57,6 +80,14 @@
             position.x -= cos(radians) * PLAYER_SPEED * deltaTime;
             position.y -= sin(radians) * PLAYER_SPEED * deltaTime;
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            float radians = angle * (PI / 180.0f);
+
+            position.x -= cos(radians) * PLAYER_SPEED * deltaTime;
+            position.y -= sin(radians) * PLAYER_SPEED * deltaTime;
+        }
+
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shootTimer <= 0.0f)
         {

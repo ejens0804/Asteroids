@@ -1,8 +1,6 @@
 #include "Asteroid.h"
 #include "Entity.h"
-#include "Constants.h"
 #include <random>
-
 
 
 Asteroid::Asteroid(sf::Vector2f direction, sf::Vector2f position)
