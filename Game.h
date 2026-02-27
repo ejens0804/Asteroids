@@ -12,7 +12,7 @@ public:
 
 private:
     static sf::Font font;
-    static int      currentLevel;
+    static int currentLevel;
 
     static void loadHighScore();
     static void saveHighScore();
