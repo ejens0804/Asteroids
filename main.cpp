@@ -1,44 +1,36 @@
-#include <iostream>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
-// Link files to program
-#include "Entity.h"
-#include "Player.h"
-#include "Asteroid.h"
+#include "Global.h"
 #include "Game.h"
 
-// command to run in terminal to run program:
-// cd build && ./test.exe
+int main() {
+    sf::RenderWindow window(
+        sf::VideoMode(static_cast<unsigned>(SCREEN_WIDTH),
+                      static_cast<unsigned>(SCREEN_HEIGHT)),
+        "Asteroids",
+        sf::Style::Close | sf::Style::Titlebar);
+    window.setFramerateLimit(120);
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Asteroids Game",
-                            sf::Style::Close | sf::Style::Titlebar);
+    if (!Game::init())
+        std::cerr << "[Warning] Could not load a font – text will be invisible.\n"
+                  << "          Place a .ttf file at  assets/font.ttf  in your build dir.\n";
+
     sf::Clock clock;
 
-    Game::begin();
-
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
+
         sf::Event e{};
-        while (window.pollEvent(e))
-        {
+        while (window.pollEvent(e)) {
             if (e.type == sf::Event::Closed)
-            {
                 window.close();
-            }
-            // else if (e.type == sf::Event::KeyPressed)
-            // {
-            //     if (e.key.code == sf::Keyboard::Q)
-            //     {
-            //         printf("%d\n", entities.size());
-            //     }
-            // }
+            else
+                Game::handleEvent(e);
         }
 
         Game::update(window, deltaTime);
-
-        window.display(); // draw the game
     }
+
+    return 0;
 }
